@@ -1,0 +1,8 @@
+Name: user-api
+Host: 0.0.0.0
+Port: 7400
+Mysql:
+  DataSource: root:12345678@tcp(127.0.0.1)/micro_user?charset=utf8mb4&parseTime=true&loc=Asia%2FShanghai
+Auth:
+  AccessSecret: my name is zhuxinlei
+  AccessExpire: 86400

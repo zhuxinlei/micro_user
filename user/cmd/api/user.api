@@ -1,0 +1,40 @@
+type (
+	Reply {
+		Code    int         `json:"code"`
+		Message string      `json:"message"`
+		Data    interface{} `json:"data"`
+	}
+	//the start of register
+	RegisterReq {
+		Username string `json:"username"`
+		Password string `json:"password"`
+		Gender   uint8  `json:"gender"`
+	}
+
+	//the start of 登录
+	LoginReq {
+		Username string `json:"username"`
+		Password string `json:"password"`
+	}
+
+	LoginReply {
+		Id           int64  `json:"id"`
+		Name         string `json:"name"`
+		Gender       string `json:"gender"`
+		AccessToken  string `json:"accessToken"`
+		AccessExpire int64  `json:"accessExpire"`
+		RefreshAfter int64  `json:"refreshAfter"`
+	}
+
+	//the end of 登录
+)
+
+service user-api {
+	@handler login
+	post /user/login (LoginReq) returns (Reply)
+}
+
+service user-api {
+	@handler register
+	post /user/register (RegisterReq) returns (Reply)
+}
